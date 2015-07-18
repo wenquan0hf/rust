@@ -1,6 +1,6 @@
 # 相关常量 #
 
-使用 `associated_consts` 功能，用户可以像如下方式来定义常量：   
+使用 `associated_consts` 功能，用户可以采用如下方式来定义常量：   
 
 
     #![feature(associated_consts)]
@@ -39,7 +39,7 @@
      }`
 
 
-默认的值可以像如下实现：
+默认的值可以采用如下实现：
 
     #![feature(associated_consts)]
     
@@ -62,7 +62,7 @@
 
 正如用户看到那样，当实现 `Foo` 的时候，用户可以不实现 `i32`，它就会使用默认值。至于 `i64`，我们也可以增加我们自己的定义。
 
-相关常量并不是必须与一个特性相关。`impl` 阻止了 `struct` 也可以很好的工作，如下：    
+相关常量并不是必须与一个特性相关。`struct` 的`impl`块也可以很好的工作，如下：    
 
     #![feature(associated_consts)]
     
