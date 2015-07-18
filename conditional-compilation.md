@@ -55,4 +55,4 @@ cfg! [语法扩展](https://doc.rust-lang.org/stable/book/compiler-plugins.html)
     println!("Think Different!");
     }
 
-很据配置设置不同，这些在编译时取真或假。
+根据配置设置不同，这些在编译时取真或假。
