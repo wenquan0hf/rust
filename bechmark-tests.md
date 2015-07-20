@@ -54,21 +54,21 @@ Rust支持基准测试来测试用户代码的性能。我们来看一下 `src/l
 1. 使 `iter` 循环体内的代码更简单，以帮助查明性能改进的地方（或回归）。
 
 
-## 疑难杂张：优化 ##
+## 疑难杂症：优化 ##
 在基准测试程序的编写方面还存在一些辣手的问题：优化编译后的基准测试代码可能会被优化器篡改，这样使得基准测试可能就不再是用户希望的测试对象了。比如，编译器可能会重新组织一些代码，因为这些代码并没有什么作用，甚至会将它全部删除。
 
 
     #![feature(test)]
 
-extern crate test;
-use test::Bencher;
+	extern crate test;
+	use test::Bencher;
 
-#[bench]
-fn bench_xor_1000_ints(b: &mut Bencher) {
-b.iter(|| {
-(0..1000).fold(0, |old, new| old ^ new);
-});
-}
+	#[bench]
+	fn bench_xor_1000_ints(b: &mut Bencher) {
+	b.iter(|| {
+	(0..1000).fold(0, |old, new| old ^ new);
+	});
+	}
     
 
 
@@ -81,12 +81,12 @@ b.iter(|| {
     test result: ok. 0 passed; 0 failed; 0 ignored; 1 measured
 
 
-为了避免上述问题，基准测试的执行者会采用两个方法。一种是，`iter` 方法可以获得一个闭包，它可以返回一个任意值来迫使优化器考虑这个结果，来保证优化器不会更改基准测试代码。下面的例子就是来展示如何校准 `b.iter`.
+为了避免上述问题，基准测试的执行者会采用两个方法。`iter` 方法可以获得一个闭包，它可以返回一个任意值来迫使优化器考虑这个结果，来保证优化器不会更改基准测试代码。下面的例子就是来展示如何校准 `b.iter`.
 
-`b.iter(|| {  
+	`b.iter(|| {  
     // note lack of `;` (could also use an explicit `return`).
     (0..1000).fold(0, |old, new| old ^ new)
-});`
+	});`
 
 另一种方法是通用的 `test::black_box` 函数，它对优化器就是一个“黑盒”，可以迫使优化器考虑更多的参数。
 
@@ -102,7 +102,9 @@ b.iter(|| {
     
 
 
-这些并不会读取和更改这个值。较大的值可以直接降低开销（`black_box(&huge_struct)`）。
+这些并不会读取和更改这个值。较大的值可以直接降低开销。
+
+	`black_box(&huge_struct)`
 
 执行上述任何一种变化提供了以下基准测试结果。
 
