@@ -1,14 +1,12 @@
-# 相关学术研究 #
+# 相关学术研究
 
-如下是部分对 Rust 有影响的学术论文。  通过阅读它们可以更好的理解 Rust 的背景，甚至迸发出更精彩的想法。
+如下是部分对 Rust 有影响的学术论文。通过阅读它们可以更好的理解 Rust 的背景，甚至迸发出更精彩的想法。
 
 ## 类型系统    
  
-- 
 - [Region based memory management in Cyclone](http://209.68.42.137/ucsd-pages/Courses/cse227.w03/handouts/cyclone-regions.pdf)    
 - [Safe manual memory management in Cyclone](http://www.cs.umd.edu/projects/PL/cyclone/scp.pdf)   
-- [Typeclasses: making ad-hoc polymorphism less ad hoc
-- ](http://www.ps.uni-saarland.de/courses/typen-ws99/class.ps.gz)   
+- [Typeclasses: making ad-hoc polymorphism less ad hoc](http://www.ps.uni-saarland.de/courses/typen-ws99/class.ps.gz)   
 - [Macros that work together](https://www.cs.utah.edu/plt/publications/jfp12-draft-fcdf.pdf)   
 - [Traits: composable units of behavior](http://scg.unibe.ch/archive/papers/Scha03aTraits.pdf)    
 - [Alias burying](http://www.cs.uwm.edu/faculty/boyland/papers/unique-preprint.ps) 我们试过类似的并且会将之摒弃。   
@@ -34,15 +32,14 @@
 - [Reagents: expressing and composing fine-grained concurrency](http://www.mpi-sws.org/~turon/reagents.pdf)   
 - [Algorithms for scalable synchronization of shared-memory multiprocessors](https://www.cs.rochester.edu/u/scott/papers/1991_TOCS_synch.pdf)   
 
-##其他
+## 其他
 
 [Crash-only software ](https://www.usenix.org/legacy/events/hotos03/tech/full_papers/candea/candea.pdf)     
 [Composing High-Performance Memory Allocators](http://people.cs.umass.edu/~emery/pubs/berger-pldi2001.pdf)   
 [Reconsidering Custom Memory Allocation](http://people.cs.umass.edu/~emery/pubs/berger-oopsla2002.pdf)    
    
-
-##关于 Rust 的论文
+## 关于 Rust 的论文
 
 [GPU programming in Rust](http://www.cs.indiana.edu/~eholk/papers/hips2013.pdf)   
-[Parallel closures: a new twist on an old idea](http://www.cs.indiana.edu/~eholk/papers/hips2013.pdf) - 提到的不完全是rust, 但是是由 nmatsakis 提出的。
+[Parallel closures: a new twist on an old idea](http://www.cs.indiana.edu/~eholk/papers/hips2013.pdf) - 提到的不完全是 rust，但是是由 nmatsakis 提出的。
 

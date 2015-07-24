@@ -1,6 +1,6 @@
-#模式
+# 模式
 
-模式在 Rust 中颇为常见。我们在<a href="http://doc.rust-lang.org/stable/book/variable-bindings.html">变量绑定</a>，<a href="http://doc.rust-lang.org/stable/book/match.html">match语句</a>和其他地方也使用它们。让我们继续旋风般的学习模式可以做的所有事情!  
+模式在 Rust 中颇为常见。我们在[变量绑定](http://doc.rust-lang.org/stable/book/variable-bindings.html)，[match语句](http://doc.rust-lang.org/stable/book/match.html)和其他地方也使用它们。让我们继续旋风般的学习模式可以做的所有事情!  
   
 快速学习：你可以直接匹配文字，同时 **\_** 充当一个‘任何’的事件：  
 
@@ -15,7 +15,7 @@
 
 以上代码将打印 **one**。  
 
-#多个模式 
+## 多个模式 
 
 你可以使用 **|** 来匹配多个模式：  
 
@@ -29,7 +29,7 @@
 
 以上代码将打印 **one or two**。  
 
-#范围 
+## 范围 
 
 你可以使用 **...** 来匹配值的范围：  
 
@@ -54,7 +54,7 @@
 
 以上代码将打印 **something else**。  
 
-#绑定
+## 绑定
 
 你可以使用 **@** 将值绑定到名称：  
 
@@ -90,7 +90,7 @@
     _ => println!("anything"),
     }
 
-#忽略变量
+## 忽略变量
 
 如果你要匹配一个包含变量的枚举，你可以使用 **..** 来忽略变量的值和类型：  
 
@@ -108,7 +108,7 @@
 
 以上代码将输出 **Got an int！**。  
 
-#守卫 
+## 守卫 
 
 你可以通过 **if** 语句来介绍‘守卫匹配’：  
 
@@ -127,9 +127,9 @@
 
 以上代码将输出 **Got an int！**。  
 
-#ref和ref mut
+## ref 和 ref mut
 
-如果你想要获得一个<a href="http://doc.rust-lang.org/stable/book/references-and-borrowing.html">引用</a>，可以使用  **ref** 关键字：  
+如果你想要获得一个[引用](http://doc.rust-lang.org/stable/book/references-and-borrowing.html)，可以使用  **ref** 关键字：  
 
     let x = 5;
     
@@ -147,9 +147,9 @@
     ref mut mr => println!("Got a mutable reference to {}", mr),
     }
 
-#重构
+## 重构
 
-如果你有一个复合数据类型，诸如<a href="http://doc.rust-lang.org/stable/book/structs.html">结构体</a>，你可以在一个模式中重构它：  
+如果你有一个复合数据类型，诸如[结构体](http://doc.rust-lang.org/stable/book/structs.html)，你可以在一个模式中重构它：  
 
     struct Point {
     x: i32,
@@ -192,11 +192,11 @@
 
 以上代码将打印出 **y is 0**。  
 
-这种‘重构’行为对于任何复合数据类型都有效，比如<a href="http://doc.rust-lang.org/stable/book/primitive-types.html#tuples">数组</a>或者<a href="http://doc.rust-lang.org/stable/book/enums.html">枚举</a>。  
+这种‘重构’行为对于任何复合数据类型都有效，比如数组或者枚举。  
 
-#混合与匹配
+## 混合与匹配
 
-哇！这里有很多种不同的方法来匹配东西，它们又可以被混合和匹配，完全取决于你做什么任务：  
+这里有很多种不同的方法来匹配东西，它们又可以被混合和匹配，完全取决于你做什么任务：  
 
     match x {
     Foo { x: Some(ref name), y: None } => ...

@@ -1,4 +1,4 @@
-##操作符和重载
+# 操作符和重载
 
 Rust 允许有限形式的操作符重载。有一些操作符能够被重载。为了支持一个类型之间特定的操作符，有一个你可以实现的特定的特征，然后重载操作符。
 
@@ -29,9 +29,9 @@ Rust 允许有限形式的操作符重载。有一些操作符能够被重载。
     println!("{:?}", p3);
     }
 
-在 main 函数中，你可以在两个 Point之间使用 + 操作符，因为我们可以使用 Point 的方法 Add<Output=Point>。
+在 main 函数中，你可以在两个 Point之间使用 + 操作符，因为我们可以使用 Point 的方法 `Add<Output=Point>`。
 
-有许多操作符可以以这种方式被重载，所有的关联特征都在 std::ops 模块中。看看完整列表的文档。　　　　
+有许多操作符可以以这种方式被重载，所有的关联特征都在 `std::ops` 模块中。看看完整列表的文档。　　　　
 
 这些特征的实现遵循一个模式。让我们看看 Add 的更多细节：
 
@@ -41,7 +41,7 @@ Rust 允许有限形式的操作符重载。有一些操作符能够被重载。
     fn add(self, rhs: RHS) -> Self::Output;
     }
 
-这里总共三种类型包括：impl Add for的类型，默认为 Self 的 RSH，还有 Output。一个表达式 let z = x + y，x 是 Self 类型，y 是 RSH 类型，还有 z 是 Self::Output 类型。
+这里总共三种类型包括：impl Add for的类型，默认为 Self 的 RSH，还有 Output。一个表达式 `let z = x + y`，x 是 Self 类型，y 是 RSH 类型，还有 z 是 Self::Output 类型。
 
 这可以让你这样做：
 

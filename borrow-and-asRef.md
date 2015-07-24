@@ -1,8 +1,8 @@
-##Borrow 和 AsRef##
+# Borrow 和 AsRef 
 
 [Borrow](https://doc.rust-lang.org/stable/std/borrow/trait.Borrow.html) 和 [AsRef](https://doc.rust-lang.org/stable/std/convert/trait.AsRef.html) 特性是非常相似的，但是也有些区别。这里有一个简单回顾一下这两个特质是什么意思。
 
-###Borrow###
+## Borrow 
 
 Borrow 特性是当你写一个数据结构时，并且你想要使用一个 owned 或 borrowed 类型作为用于某些目的的同义词。
 
@@ -51,7 +51,7 @@ foo(&mut i);
 
 上面的代码会输出 a is borrowed: 5 两次。
 
-###AsRef###
+## AsRef 
 
 AsRef 是转换特征。它被用在通用的代码中将一些值转换成索引类型。比如：
 
@@ -63,7 +63,7 @@ fn foo<T: AsRef<str>>(s: T) {
 }
 ```
 
-###应该用哪一个？###
+## 应该用哪一个？ 
 
 我们可以看到他们是如何的相似：他们都处理 owned 和 borrowed 版本的数据类型。然而，他们还是有点不同。
 

@@ -1,4 +1,4 @@
-#枚举
+# 枚举
  
 在 Rust 中**枚举**是一个类型，它表示几个可能变量中的一个数据:  
 
@@ -30,4 +30,4 @@
     let Message::ChangeColor(r, g, b) = msg; // compile-time error
     }
   
-不支持这些操作可能会看起来相当受限制，但是这是一个我们可以克服的限制。这里有两种方式：通过我们自己实现相等，或者通过模式匹配带有<a href="http://doc.rust-lang.org/stable/book/match.html">模式</a>表达式的变量，你将在下一节中学习这些内容。我们对于 Rust 怎样实现平等了解还不够，但是我们会在<a href="http://doc.rust-lang.org/stable/book/traits.html">特性</a>章节学习到。
+不支持这些操作可能会看起来相当受限制，但是这是一个我们可以克服的限制。这里有两种方式：通过我们自己实现相等，或者通过模式匹配带有[模式](http://doc.rust-lang.org/stable/book/match.html)表达式的变量，你将在下一节中学习这些内容。我们对于 Rust 怎样实现平等了解还不够，但是我们会在[特性](traits.md)章节学习到。

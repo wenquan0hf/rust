@@ -1,4 +1,4 @@
-##Nightly Rust
+# Nightly Rust
 
 Rust 提供了三个版本渠道：nightly，beta，还有stable。不稳定特性只在 Nightly Rust 有效。这个过程的更多细节，请参见 “Stability as a deliverable”。　　　　
 
@@ -13,7 +13,7 @@ Rust 提供了三个版本渠道：nightly，beta，还有stable。不稳定特�
 
 如果你在使用 Windows 系统，请下载32位的安装程序或64位安装程序并运行它。
 
-###卸载
+## 卸载
 
 如果你决定你不在使用 Rust 了，我们会有点难过，但没关系。并不是每一个编程语言对每个人来说都是很好用的。只需运行卸载脚本：
 
@@ -43,6 +43,6 @@ Rust 提供了三个版本渠道：nightly，beta，还有stable。不稳定特�
 
 如果你这么做了，Rust 已经安装成功！恭喜！
 
-这个安装程序也在本地安装一个文档的副本，这样你就可以离线阅读。在 UNIX 系统中，/usr/local/share/doc/rust 就是安装地址。在 Windows 中，安装在一个 share/doc 目录中，无论你将 Rust 安装在何处。　　　　
+这个安装程序也在本地安装一个文档的副本，这样你就可以离线阅读。在 UNIX 系统中，`/usr/local/share/doc/rust` 就是安装地址。在 Windows 中，安装在一个 `share/doc` 目录中，无论你将 Rust 安装在何处。　　　　
 
 如果没有安装，有很多地方你可以得到帮助。最简单的就是 the #rust IRC channel on irc.mozilla.org ，你可以通过 Mibbit 访问到。单击该链接，你可以与其他 Rustaceans 交流，我们可以帮助你。还有其它的资源，包括用户的论坛和堆栈溢出。

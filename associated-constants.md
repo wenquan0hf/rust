@@ -1,7 +1,6 @@
-# 相关常量 #
+# 相关常量
 
 使用 `associated_consts` 功能，用户可以采用如下方式来定义常量：   
-
 
     #![feature(associated_consts)]
     
@@ -17,9 +16,7 @@
     assert_eq!(1, i32::ID);
     }
 
-
 任何 `Foo` 的实现都必须定义 `ID`. 如果没有定义：
-
 
     #![feature(associated_consts)]
     
@@ -32,12 +29,9 @@
 
 上述代码出现下面的提示：   
 
-
-
 `error: not all trait items implemented, missing: `ID` [E0046]
      impl Foo for i32 {
      }`
-
 
 默认的值可以采用如下实现：
 
@@ -58,7 +52,6 @@
     assert_eq!(1, i32::ID);
     assert_eq!(5, i64::ID);
     }
-
 
 正如用户看到那样，当实现 `Foo` 的时候，用户可以不实现 `i32`，它就会使用默认值。至于 `i64`，我们也可以增加我们自己的定义。
 

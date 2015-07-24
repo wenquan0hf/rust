@@ -12,6 +12,7 @@ Rust发行版包含一个工具 **rustdoc**，它可以生成一个文档。**ru
 
 记录一个 Rust 项目的主要方式是通过注释源代码。为此可以使用文档注释：
 
+
     /// Constructs a new `Rc<T>`.
     ///
     /// # Examples
@@ -25,7 +26,7 @@ Rust发行版包含一个工具 **rustdoc**，它可以生成一个文档。**ru
     	// implementation goes here
     }
 
-这段代码生成如下所示的文档。在这里只保留了它本来位置的常规的注释，而省去了实现。关于这个注释的第一件需要注意的事：它使用 ///，而不是 //。即三重斜线表示文档的注释。
+这段代码生成如下所示的文档。在这里只保留了它本来位置的常规的注释，而省去了实现。关于这个注释的第一件需要注意的事：它使用 `///`，而不是 `//`。即三重斜线表示文档的注释。
 
 在 markdown 中书写文档的注释。
 
@@ -73,7 +74,7 @@ Rust 跟踪这些注释，并在生成文档时使用它们。当记录一些诸
 
     /// # Examples
 
-接下来是特殊部分。这些以一个头 # 表示。有三种常用的头文件。他们没有特殊的语法，现在只是有约定俗成的用法,
+接下来是特殊部分。这些以一个头 # 表示。有三种常用的头文件。他们没有特殊的语法，现在只是有约定俗成的用法，
 
     /// # Panics
 
@@ -149,7 +150,7 @@ Rust 跟踪这些注释，并在生成文档时使用它们。当记录一些诸
     /// let five = Rc::new(5);
     /// ```
 
-这是最终的测试:
+这是最终的测试：
 
     fn main() {
     	use std::rc::Rc;
@@ -158,12 +159,12 @@ Rust 跟踪这些注释，并在生成文档时使用它们。当记录一些诸
 
 这是 rustdoc 使用后处理例子的完整算法：
 
-1. 任何主要 **#!(foo)** 属性是完好的 crate 属性。
-1. 一些常见的 **allow** 属性被插入，包括 **unused_variables** ，**unused_assignments**，**unused_mut**，**unused_attributes**，**dead_code**。小例子经常会引发这些麻烦。
-1. 如果样例不包含 **extern crate**，那么 **extern crate <mycrate>** 就会被插入。
-1. 最后，如果样例不包含 **fn main**，文本的其余部分会包装在fn main() { your_code }。
+- 任何主要 **#!(foo)** 属性是完好的 crate 属性。
+- 一些常见的 **allow** 属性被插入，包括 **unused_variables** ，**unused_assignments**，**unused_mut**，**unused_attributes**，**dead_code**。小例子经常会引发这些麻烦。
+- 如果样例不包含 **extern crate**，那么 **extern crate <mycrate>** 就会被插入。
+- 最后，如果样例不包含 **fn main**，文本的其余部分会包装在fn main() { your_code }。
 
-然而，有时这还是不够的。例如，所有这些代码示例中，我们用 /// 来标注我们在说什么，原始文本：
+然而，有时这还是不够的。例如，所有这些代码示例中，我们用 `///` 来标注我们在说什么，原始文本：
 
     /// Some documentation.
     # fn foo() {}
@@ -276,7 +277,7 @@ Rust 跟踪这些注释，并在生成文档时使用它们。当记录一些诸
 
 ### 记录模块
 
-Rust有另外一种文档评论 //!。这个评论不记录下一个项目，而是记录封闭的项目。换句话说:
+Rust有另外一种文档评论 `//!`。这个评论不记录下一个项目，而是记录封闭的项目。换句话说:
 
     mod foo {
     	//! This is documentation for the `foo` module.
@@ -286,7 +287,7 @@ Rust有另外一种文档评论 //!。这个评论不记录下一个项目，而
     	// ...
     }
 
-//! 最常见的用途：用于模块文档。如果你在 **foo.rs** 之内有一个模块，你经会经常打开它的代码，并且看到这个：
+`//!` 最常见的用途：用于模块文档。如果你在 **foo.rs** 之内有一个模块，你经会经常打开它的代码，并且看到这个：
 
     //! A module for using `foo`s.
     //!
@@ -361,7 +362,7 @@ Rust有另外一种文档评论 //!。这个评论不记录下一个项目，而
     #[doc(no_inline)]
     pub use foo::bar;
 
-### 控制HTML
+### 控制 HTML
 
 你可以通过 #!(doc) 的属性版本控制 rustdoc 产生 HTML 的若干部分：
 
@@ -376,12 +377,12 @@ Rust有另外一种文档评论 //!。这个评论不记录下一个项目，而
 
 **rustdoc** 还包含一些其他命令行选项，为了进一步用户化：
 
-- **html-in-header FILE**：在 <head>…</head> 的结尾部分，包括文件的内容。
-- **html-before-content FILE**：在 <body> 之后，呈现的内容之前(包括搜索栏)，包括文件的内容。
+- **html-in-header FILE**：在 `<head>…</head>` 的结尾部分，包括文件的内容。
+- **html-before-content FILE**：在 `<body>` 之后，呈现的内容之前(包括搜索栏)，包括文件的内容。
 - **html-after-content FILE**：在所有呈现内容之后，包括文件的内容。
 
 ### 安全事项
 
-Markdown 中放置的文档注释，没有被处理成最终的网页。小心文字的HTML：
+Markdown 中放置的文档注释，没有被处理成最终的网页。小心文字的 HTML：
     
     /// <script>alert(document.cookie)</script>

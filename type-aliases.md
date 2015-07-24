@@ -1,4 +1,4 @@
-##type 别名
+# type 别名
 
 你可以使用 type 关键字声明另一类型的别名：
 
@@ -53,4 +53,4 @@
     
     type Result<T> = result::Result<T, ConcreteError>;
 
-这将创建一个 Result类型的专门的版本 ，它总是有一个针对 Result< T E >的 E 部分的 ConcreteError 。这常被用在标准库来为每一部分创建自定义错误。例如，io::Result 。
+这将创建一个 Result 类型的专门的版本 ，它总是有一个针对 `Result< T E >` 的 E 部分的 ConcreteError 。这常被用在标准库来为每一部分创建自定义错误。例如，`io::Result` 。

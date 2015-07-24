@@ -1,4 +1,4 @@
-#可变性 
+# 可变性 
 
 可变性，可以改变东西的能力，与其他语言相比它在 Rust 中有点不同。可变性的第一个方面是它的非默认状态：  
 
@@ -11,9 +11,9 @@
     
     x = 6; // no problem!
 
-这是一个可变的<a href="http://doc.rust-lang.org/stable/book/variable-bindings.html">变量绑定</a>。当一个绑定是可变时，这意味着你可以更改绑定的指向。所以在上面的例子中，不是 **x** 的值发生变化，而是这个绑定从 **i32** 更改为其他。  
+这是一个可变的[变量绑定](http://doc.rust-lang.org/stable/book/variable-bindings.html)。当一个绑定是可变时，这意味着你可以更改绑定的指向。所以在上面的例子中，不是 **x** 的值发生变化，而是这个绑定从 **i32** 更改为其他。  
 
-如果你想要更改绑定的指向，你将需要一个<a href="http://doc.rust-lang.org/stable/book/references-and-borrowing.html">可变的引用</a>：  
+如果你想要更改绑定的指向，你将需要一个[可变的引用](http://doc.rust-lang.org/stable/book/references-and-borrowing.html)：  
 
     let mut x = 5;
     let y = &mut x;
@@ -27,15 +27,15 @@
 
 现在 **y** 可以绑定到另一个值，并且这个引用的值可以改变。  
 
-注意到 **mut** 是<a href="http://doc.rust-lang.org/stable/book/patterns.html">模式</a>的一部分是非常重要的，你可以这样编写代码：  
+注意到 **mut** 是<[模式](http://doc.rust-lang.org/stable/book/patterns.html)的一部分是非常重要的，你可以这样编写代码：  
 
     let (mut x, y) = (5, 6);
     
     fn foo(mut x: i32) {
 
-#内部和外部可变性  
+## 内部和外部可变性  
 
-然而，在 Rust 中当我们说有些东西是‘不变’的，这并不意味着它不可以更改：我们说的是它有‘外部可变性’。考虑如下例子，<a href="http://doc.rust-lang.org/stable/std/sync/struct.Arc.html">Arc<T\></a>：  
+然而，在 Rust 中当我们说有些东西是‘不变’的，这并不意味着它不可以更改：我们说的是它有‘外部可变性’。考虑如下例子，[Arc<T\>](http://doc.rust-lang.org/stable/std/sync/struct.Arc.html)：  
     
     use std::sync::Arc;
     
@@ -44,7 +44,7 @@
 
 当我们调用 **clone()** 时，**Arc<T\>** 需要更新引用计数。然而我们在这里还没有使用 **mut**，**x** 是一个不可变绑定，同时我们没有使用 **&mut 5** 或者任何东西。所以谁给？  
 
-要理解这一点，我们需要回到 Rust 的指导哲学的核心，内存安全，和 Rust 保证的机制，<a href="http://doc.rust-lang.org/stable/book/ownership.html">所有权</a>系统，和更具体的，<a href="http://doc.rust-lang.org/stable/book/borrowing.html#The-Rules">借用</a>：  
+要理解这一点，我们需要回到 Rust 的指导哲学的核心，内存安全，和 Rust 保证的机制，[所有权](http://doc.rust-lang.org/stable/book/ownership.html)系统，和更具体的，[借用](http://doc.rust-lang.org/stable/book/borrowing.html#The-Rules)：  
     
     You may have one or the other of these two kinds of borrows, but not both at the same time:
     
@@ -53,7 +53,7 @@
 
 所以，这就是‘不变’的真正定义：有两个指针指向内容是否安全？在 **Arc<T\>** 的例子中，是的：变化完全包含在内部结构本身中。它不是面向用户的。为此，将 **&T** 传递给 **clone()**。但是，如果将 **&mut T**  传递给 **clone()**，将会成为一个问题：  
 
-其它类型，诸如 <a href="http://doc.rust-lang.org/stable/std/cell/">std::cell</a> 模块中，具有相反的：内部可变性。例如：  
+其它类型，诸如 [std::cell](http://doc.rust-lang.org/stable/std/cell/) 模块中，具有相反的：内部可变性。例如：  
     
     use std::cell::RefCell;
     
@@ -72,9 +72,9 @@ RefCell 用 **borrow_mut()**  函数来将 **&mut** 引用传递到它包含的�
 
 事实上，这将在运行时引起恐慌。这是 **RefCell** 做的事情：它在运行时保证 Rust 的借用规则，同时如果它们违背了规则时的 **panic!**。这允许我们能够绕过 Rust 的不变规则的另一方面。让我们先讲讲吧。  
 
-##字段级可变性
+## 字段级可变性
 
-可变性是借用 ( **&mut** ) 或者绑定 ( **let mut** ) 的一个属性。这意味着，例如，你不能有一个<a href="http://doc.rust-lang.org/stable/book/structs.html">结构体</a>既有一些字段可变还有一些不可变：  
+可变性是借用 ( **&mut** ) 或者绑定 ( **let mut** ) 的一个属性。这意味着，例如，你不能有一个[结构体](http://doc.rust-lang.org/stable/book/structs.html)既有一些字段可变还有一些不可变：  
 
     struct Point {
     x: i32,

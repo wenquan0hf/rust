@@ -1,4 +1,4 @@
-#结构体
+# 结构体
 
 结构体是创建更复杂的数据类型的一种方式。例如，如果我们做涉及在二维空间中的坐标计算时，我们可能既需要 **x** 的值，也需要 **y** 的值：  
 
@@ -65,7 +65,7 @@ Rust 在语言层面不支持字段可变性，所以你不能像以下这样书
     point.y = 6; // this causes an error
     }
 
-#语法更新
+## 语法更新
 
 一个**结构体**可以包含 **..** 来表明你想要使用一些其他结构体的副本用于某些值。例如：  
 
@@ -83,9 +83,9 @@ Rust 在语言层面不支持字段可变性，所以你不能像以下这样书
     let origin = Point3d { x: 0, y: 0, z: 0 };
     let point = Point3d { z: 1, x: 2, .. origin };
 
-#数组结构体
+## 数组结构体
 
-Rust 有另外一个数据类型就像一个<a href="http://doc.rust-lang.org/stable/book/primitive-types.html#tuples">数组</a>与一个结构体的混合，称为“数组结构体”。数组结构体有一个名字，但是它们的字段没有名字：
+Rust 有另外一个数据类型就像一个[数组](http://doc.rust-lang.org/stable/book/primitive-types.html#tuples)与一个结构体的混合，称为“数组结构体”。数组结构体有一个名字，但是它们的字段没有名字：
 
     struct Color(i32, i32, i32);
     struct Point(i32, i32, i32);
@@ -122,11 +122,12 @@ Rust 有另外一个数据类型就像一个<a href="http://doc.rust-lang.org/st
 
 正如你所看到的，你可以通过一个非结构化的 **let** 关键字来提取内在的整数类型，正如通常的数组一样。在这种情况下，**let Inches(integer_length)** 将 **10** 赋值给 **integer\_length**。
 
-#Unit-like结构体
+## Unit-like 结构体
+
 你可以定义一个根本没有任何成员的结构体：  
 
     struct Electron;
 
 这样的结构体被称为 ‘unit-like’ ，因为它类似于空数组，**()**，有时被称为 ‘unit’。与数组结构体一样，它定义了一个新的类型。  
 
-这种结构体通常对自己没有什么用处（虽然它有时可以作为一个标记类型使用），但是结合其他的功能，它可以变的有用。例如，一个库可能想要要求你创建一个可以实现某些特定<a href="http://doc.rust-lang.org/stable/book/traits.html">特征</a>的结构体来处理事件。如果你没有需要在结构体中存储的数据，你可以只创建一个 unit-like 结构体。
+这种结构体通常对自己没有什么用处（虽然它有时可以作为一个标记类型使用），但是结合其他的功能，它可以变的有用。例如，一个库可能想要要求你创建一个可以实现某些特定[特征](http://doc.rust-lang.org/stable/book/traits.html)的结构体来处理事件。如果你没有需要在结构体中存储的数据，你可以只创建一个 unit-like 结构体。

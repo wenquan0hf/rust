@@ -1,6 +1,6 @@
-##编译器插件
+# 编译器插件
 
-###简介
+## 简介
 
 rustc 可以加载编译器插件，它是用户提供的库,这个库使用新语法扩展编译器的行为，lint 检查等。　　　　
 
@@ -12,7 +12,7 @@ rustc 可以加载编译器插件，它是用户提供的库,这个库使用新�
 
 通常的做法是将编译器插件放入自己的库中，独立于库中被客户端使用的任何 macro_rules ! 宏或普通 Rust 代码。
 
-###语法扩展
+## 语法扩展
 
 插件可以用不同的方法扩展 Rust 的语法。一种语法扩展是程序宏。调用程序宏就像调用普通的宏一样，但扩展是由任意在运行时操纵语法树的 Rust 代码执行。　　　　
 
@@ -88,7 +88,7 @@ rustc 可以加载编译器插件，它是用户提供的库,这个库使用新�
 
 除了程序宏，你可以定义新的 derive-like 属性和其他类型的扩展。请看Registry::register_syntax_extension 和 SyntaxExtension enum。更多调用宏的例子，请见 regex_macros。
 
-###提示和技巧
+## 提示和技巧
 
 有一些宏的调试技巧是适用的。　　　　
 
@@ -107,13 +107,13 @@ rustc 可以加载编译器插件，它是用户提供的库,这个库使用新�
 
 调用 ExtCtxt:span_fatal 会立即中止编译。最好不要调用 ExtCtxt:span_err 并返回 DummyResult，编译器可以继续并找到更多的错误。　　　　
 
-为了打印语法片段进行调试，可以使用 span\_note 加上syntax::print::pprust::*_to_string。
+为了打印语法片段进行调试，可以使用 `span\_note` 加上 `syntax::print::pprust::*_to_string`。
 
 上面的例子使用 AstBuilder::expr_usize 产生一个整数。除了 AstBuilder 特征，libsyntax 提供了一组 quasiquote 宏。他们没有正式文件并且非常粗糙的。然而，它的实现可能是一个改进的一个普通的插件库 quasiquote 的好的起点 。
 
-###Lint 插件
+## Lint 插件
 
-插件可以通过对额外的代码类型、安全等等的检查来扩展 Rust 的 lint 基础结构。在 src/test/auxiliary/lint_plugin\_test.rs 中你可以看到一个完整的例子。这个例子的核心如下：
+插件可以通过对额外的代码类型、安全等等的检查来扩展 Rust 的 lint 基础结构。在 `src/test/auxiliary/lint_plugin\_test.rs` 中你可以看到一个完整的例子。这个例子的核心如下：
 
     declare_lint!(TEST_LINT, Warn,
       "Warn about items named 'lintme'");
